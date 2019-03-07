@@ -1,23 +1,22 @@
 import { Platform, AlertController } from '@ionic/angular';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Storage } from '@ionic/storage';
-import { environment } from '../../environments/environment';
 import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import { MatrixConstants } from '../constants/matrix.constants';
+
 import { MatrixCommunicationChannelEncryptionService } from './matrix-communication-channel-encryption.service';
-import { MatrixHttpService } from './matrix-http.service';
+import { ApiInteractionGatewayService } from '../api-interaction-gateway/api-interaction-gateway.service';
+import { IRemember } from '../constants/i-remember.constants';
+
 const TOKEN_KEY = 'access_token';
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    url = environment.url;
     user = null;
     authenticationState = new BehaviorSubject(false);
-    constructor(private matHttp: MatrixHttpService,
+    constructor(private httpGateway: ApiInteractionGatewayService,
         private helper: JwtHelperService,
         private storage: Storage,
         private plt: Platform,
@@ -42,7 +41,7 @@ export class AuthService {
         });
     }
     register(credentials) {
-        return this.matHttp.doPost(`${this.url}/api/register`, credentials).pipe(
+        return this.httpGateway.doPost(IRemember.apiEndPoints.registrationUrl, credentials).pipe(
             catchError(e => {
                 this.showAlert(e.error.msg);
                 throw new Error(e);
@@ -50,7 +49,7 @@ export class AuthService {
         );
     }
     login(credentials) {
-        return this.matHttp.doPost(MatrixConstants.url.apiUrl + MatrixConstants.url.authenticationUrl,
+        return this.httpGateway.doPost(IRemember.apiEndPoints.authenticationUrl,
             credentials)
             .pipe(
                 tap(encryptedUser => {
@@ -70,7 +69,7 @@ export class AuthService {
             );
     }
     logout() {
-        this.matHttp.doPost(MatrixConstants.url.apiUrl + MatrixConstants.url.signOutUrl, {}).subscribe(
+        this.httpGateway.doPost(IRemember.apiEndPoints.signOutUrl, {}).subscribe(
             (data) => {
                 console.warn('User\'s session has been signed out');
             }
@@ -80,7 +79,7 @@ export class AuthService {
         });
     }
     // getSpecialData() {
-    // return this.matHttp.get(`${this.url}/api/special`).pipe(
+    // return this.httpGateway.get(`${this.url}/api/special`).pipe(
     // catchError(e => {
     // const status = e.status;
     // if (status === 401) {

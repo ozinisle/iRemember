@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { NoteListService } from './note-list.service';
 import { NoteItemInterface } from '../../shared/models/interfaces/note-item.interface';
 import { NoteItem } from '../../shared/models/note-item.model';
-import { MatrixHttpService } from 'src/shared/services/matrix-http.service';
+import { ApiInteractionGatewayService } from '../../shared/api-interaction-gateway/api-interaction-gateway.service';
+
 @Component({
   selector: 'app-list',
   templateUrl: 'list.page.html',
@@ -26,11 +27,11 @@ export class ListPage implements OnInit {
   public items: NoteItemInterface[] = [];
   public isDeleteButtonSelected: boolean = false;
   private itemsMarkedForDeletion: string[] = [];
-  constructor(private matHttp: MatrixHttpService, private router: Router,
+  constructor(private httpGateway: ApiInteractionGatewayService, private router: Router,
     private noteListService: NoteListService) {
   }
   ngOnInit() {
-    this.matHttp.doUnencryptedGet('/assets/data/notes-list.data.json').subscribe(response => {
+    this.httpGateway.doUnencryptedGet('/assets/data/notes-list.data.json').subscribe(response => {
       this.items = <NoteItem[]>response;
     }, error => {
       throw error;

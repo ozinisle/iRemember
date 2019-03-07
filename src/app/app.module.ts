@@ -16,8 +16,9 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthGuardService } from '../shared/services/auth-guard.service';
 import { AuthService } from '../shared/services/auth.service';
-import { MatrixHttpService } from '../shared/services/matrix-http.service';
+
 import { MatrixCommunicationChannelEncryptionService } from 'src/shared/services/matrix-communication-channel-encryption.service';
+import { ApiInteractionGatewayService } from 'src/shared/api-interaction-gateway/api-interaction-gateway.service';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -52,7 +53,7 @@ export function jwtOptionsFactory(storage) {
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    MatrixHttpService,
+    ApiInteractionGatewayService,
     MatrixCommunicationChannelEncryptionService,
     NoteListService,
     ViewNoteResolver,

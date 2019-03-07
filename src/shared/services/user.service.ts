@@ -1,23 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 import { User } from '../models/user';
-import { MatrixConstants } from '../../shared/constants/matrix.constants';
+import { IRemember } from '../constants/i-remember.constants';
+import { ApiInteractionGatewayService } from '../api-interaction-gateway/api-interaction-gateway.service';
+
 @Injectable()
 export class UserService {
-    constructor(private http: HttpClient) { }
+    constructor(private httpGateway: ApiInteractionGatewayService) { }
     getAll() {
-        return this.http.get<User[]>(`${MatrixConstants.url.apiUrl}/users`);
+        return this.httpGateway.doGet(`${IRemember.apiEndPoints.root}/users`);
     }
     getById(id: number) {
-        return this.http.get(`${MatrixConstants.url.apiUrl}/users/` + id);
+        return this.httpGateway.doGet(`${IRemember.apiEndPoints.root}/users/` + id);
     }
     register(user: User) {
-        return this.http.post(`${MatrixConstants.url.apiUrl}/users/register`, user);
+        return this.httpGateway.doPost(`${IRemember.apiEndPoints.root}/users/register`, user);
     }
     update(user: User) {
-        return this.http.put(`${MatrixConstants.url.apiUrl}/users/` + user.id, user);
+        return this.httpGateway.doPut(`${IRemember.apiEndPoints.root}/users/` + user.id, user);
     }
     delete(id: number) {
-        return this.http.delete(`${MatrixConstants.url.apiUrl}/users/` + id);
+        return this.httpGateway.doDelete(`${IRemember.apiEndPoints.root}/users/` + id);
     }
 }
