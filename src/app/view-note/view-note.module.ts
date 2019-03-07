@@ -2,18 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
-
-import { NewNotePage } from './new-note.page';
-
+import { ViewNotePage } from './view-note.page';
 const routes: Routes = [
   {
     path: '',
-    component: NewNotePage
+    component: ViewNotePage
   }
 ];
-
 @NgModule({
   imports: [
     CommonModule,
@@ -21,6 +17,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [NewNotePage]
+  declarations: [ViewNotePage]
 })
-export class NewNotePageModule {}
+export class ViewNotePageModule { }

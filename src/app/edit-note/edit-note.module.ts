@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { LoginPage } from './login.page';
+import { EditNotePage } from './edit-note.page';
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage
+    component: EditNotePage
   }
 ];
 @NgModule({
@@ -18,6 +18,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule
   ],
-  declarations: [LoginPage]
+  declarations: [EditNotePage]
 })
-export class LoginPageModule { }
+export class EditNotePageModule { }

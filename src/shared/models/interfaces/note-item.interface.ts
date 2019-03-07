@@ -1,4 +1,5 @@
 export interface NoteItemInterface {
+    isMarkedForDeletion: boolean;
     getNoteTitle(): string;
     setNoteTitle(noteTitle: string): NoteItemInterface;
     getNoteDescription(): string;

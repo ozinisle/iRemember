@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -8,7 +8,6 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-card class="welcome-card">
     <ion-img src="/assets/shapes.svg"></ion-img>
@@ -28,7 +27,7 @@
       <ion-icon slot="start" color="medium" name="book"></ion-icon>
       <ion-label>View Notes</ion-label>
     </ion-item>
-    <ion-item [routerDirection]="'root'" [routerLink]="['/new-note']">
+    <ion-item [routerDirection]="'root'" [routerLink]="['/edit-note']">
       <ion-icon slot="start" color="medium" name="create"></ion-icon>
       <ion-label>Create a Note</ion-label>
     </ion-item>

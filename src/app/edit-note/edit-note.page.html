@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Edit Note
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="noteEntryForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input type="text" formControlName="title">
+      </ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.title">
+        <div class="error-message" *ngIf="noteEntryForm.get('title').hasError(validation.type) && 
+  (noteEntryForm.get('title').dirty || noteEntryForm.get('title').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Tags</ion-label>
+      <ion-input type="text" formControlName="tags"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.tags">
+        <div class="error-message" *ngIf="noteEntryForm.get('tags').hasError(validation.type) && 
+  (noteEntryForm.get('tags').dirty || noteEntryForm.get('tags').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label position="floating" minlength="4">Description</ion-label>
+      <ion-textarea type="text" rows="15" placeholder="descriptions..." autocomplete="on" autocorrect="on"
+        formControlName="description"></ion-textarea>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.description">
+        <div class="error-message" *ngIf="noteEntryForm.get('description').hasError(validation.type) && 
+  (noteEntryForm.get('description').dirty || noteEntryForm.get('description').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-button color="primary" expand="block" [disabled]="!noteEntryForm.valid" (click)="onSubmit()">Submit
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NewNoteResolver } from './new-note/new-note.resolver';
-
+import { EditNoteResolver } from './edit-note/edit-note.resolver';
+import { ViewNoteResolver } from './view-note/view-note.resolver';
+import { AuthGuardService } from 'src/shared/services/auth-guard.service';
 const routes: Routes = [
   {
     path: '',
@@ -14,19 +15,34 @@ const routes: Routes = [
   },
   {
     path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
+    loadChildren: './list/list.module#ListPageModule',
+    canActivate: [AuthGuardService]
   },
-  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   {
-    path: 'new-note',
-    loadChildren: './new-note/new-note.module#NewNotePageModule',
+    path: 'register',
+    loadChildren: './register/register.module#RegisterPageModule'
+  },
+  {
+    path: 'login',
+    loadChildren: './login/login.module#LoginPageModule'
+  },
+  {
+    path: 'view-note',
+    loadChildren: './view-note/view-note.module#ViewNotePageModule',
     resolve: {
-      note: NewNoteResolver
+      viewNoteResolverData: ViewNoteResolver
     },
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'edit-note',
+    loadChildren: './edit-note/edit-note.module#EditNotePageModule',
+    resolve: {
+      editNoteResolverData: EditNoteResolver
+    },
+    canActivate: [AuthGuardService]
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
