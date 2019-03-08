@@ -8,6 +8,8 @@ import { BehaviorSubject } from 'rxjs';
 import { MatrixCommunicationChannelEncryptionService } from './matrix-communication-channel-encryption.service';
 import { ApiInteractionGatewayService } from '../api-interaction-gateway/api-interaction-gateway.service';
 import { IRemember } from '../constants/i-remember.constants';
+import { MatrixRegistrationRequestModelInterface } from '../models/interfaces/registration-model.interface';
+import { environment } from 'src/environments/environment';
 
 const TOKEN_KEY = 'access_token';
 @Injectable({
@@ -40,16 +42,17 @@ export class AuthService {
             }
         });
     }
-    register(credentials) {
-        return this.httpGateway.doPost(IRemember.apiEndPoints.registrationUrl, credentials).pipe(
+    register(credentials: MatrixRegistrationRequestModelInterface) {
+        credentials.appName = environment.appName;
+        return this.httpGateway.doPost(IRemember.apiEndPoints.register, credentials).pipe(
             catchError(e => {
                 this.showAlert(e.error.msg);
                 throw new Error(e);
             })
         );
     }
-    login(credentials) {
-        return this.httpGateway.doPost(IRemember.apiEndPoints.authenticationUrl,
+    login(credentials: MatrixRegistrationRequestModelInterface) {
+        return this.httpGateway.doPost(IRemember.apiEndPoints.login,
             credentials)
             .pipe(
                 tap(encryptedUser => {

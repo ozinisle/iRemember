@@ -3,10 +3,7 @@ import { MatrixGenericResponseModelInterface } from './matrix-generic-response-m
 export interface MatrixRegistrationRequestModelInterface {
     username: string;
     password: string;
-    firstname: string;
-    lastname: string;
-    email: string;
-    mobile: string;
+    appName: string;
 }
 // tslint:disable-next-line:no-empty-interface
 export interface MatrixRegistrationResponseModelInterface extends MatrixGenericResponseModelInterface {

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiSourceDomain: 'http://localhost'
+  apiSourceDomain: 'http://localhost',
+  appName: 'iRemember'
 };
 
 /*
