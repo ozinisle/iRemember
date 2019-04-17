@@ -5,11 +5,11 @@ export const IRemember = Object.freeze({
         currentUser: ''
     },
     apiEndPoints: {
-        root: `${environment.apiSourceDomain}/matrix-agents`,
-        login: `${environment.apiSourceDomain}/matrix-agents/authentication/authenticate-user.php`,
+        root: `${environment.apiSource}`,
+        login: `${environment.apiSource}/authentication/authenticate-user.php`,
         loginUrl: '/login',
-        register: `${environment.apiSourceDomain}/matrix-agents/authentication/register-user.php`,
-        signOutUrl: 'authentication/sign-out.php'
+        register: `${environment.apiSource}/authentication/register-user.php`,
+        signOutUrl: `${environment.apiSource}/authentication/sign-out.php`
     },
     messages: {
         registrationSuccess: 'Registration successful',

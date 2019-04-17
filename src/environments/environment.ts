@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiSourceDomain: 'http://localhost',
+  apiSource: 'http://localhost/products/iremember-matrix-agents',
   appName: 'iRemember'
 };
 

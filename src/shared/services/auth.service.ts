@@ -46,7 +46,7 @@ export class AuthService {
         credentials.appName = environment.appName;
         return this.httpGateway.doPost(IRemember.apiEndPoints.register, credentials).pipe(
             catchError(e => {
-                this.showAlert(e.error.msg);
+                this.showAlert(e.error && e.error.msg ? e.error.msg : e.message);
                 throw new Error(e);
             })
         );
@@ -66,7 +66,7 @@ export class AuthService {
                     return user;
                 }),
                 catchError(e => {
-                    this.showAlert(e.error.msg);
+                    this.showAlert(e.error && e.error.msg ? e.error.msg : e.message);
                     throw new Error(e);
                 })
             );
