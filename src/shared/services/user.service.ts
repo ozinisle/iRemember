@@ -14,7 +14,7 @@ export class UserService {
         return this.httpGateway.doGet(`${IRemember.apiEndPoints.root}/users/` + id);
     }
     register(user: User) {
-        return this.httpGateway.doPost(`${IRemember.apiEndPoints.root}/users/register`, user);
+        return this.httpGateway.doPost(`${IRemember.apiEndPoints.root}/users/register`, user, true);
     }
     update(user: User) {
         return this.httpGateway.doPut(`${IRemember.apiEndPoints.root}/users/` + user.id, user);
@@ -22,4 +22,4 @@ export class UserService {
     delete(id: number) {
         return this.httpGateway.doDelete(`${IRemember.apiEndPoints.root}/users/` + id);
     }
-}
+} 

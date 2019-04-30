@@ -19,6 +19,7 @@ import { AuthService } from '../shared/services/auth.service';
 
 import { MatrixCommunicationChannelEncryptionService } from 'src/shared/services/matrix-communication-channel-encryption.service';
 import { ApiInteractionGatewayService } from 'src/shared/api-interaction-gateway/api-interaction-gateway.service';
+import { EditNoteService } from './edit-note/edit-note.service';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -59,7 +60,8 @@ export function jwtOptionsFactory(storage) {
     ViewNoteResolver,
     EditNoteResolver,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    EditNoteService
   ],
   exports: [
     FormsModule,

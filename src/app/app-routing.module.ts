@@ -27,6 +27,10 @@ const routes: Routes = [
     loadChildren: './login/login.module#LoginPageModule'
   },
   {
+    path: 'forgot-password',
+    loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule'
+  },
+  {
     path: 'view-note',
     loadChildren: './view-note/view-note.module#ViewNotePageModule',
     resolve: {
@@ -41,7 +45,9 @@ const routes: Routes = [
       editNoteResolverData: EditNoteResolver
     },
     canActivate: [AuthGuardService]
-  }
+  },
+  { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

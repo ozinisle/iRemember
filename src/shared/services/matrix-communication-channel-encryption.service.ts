@@ -44,17 +44,29 @@ export class MatrixCommunicationChannelEncryptionService implements MatrixMessag
     * @returns decryptedMessage as string
     */
     CryptoJS_Aes_OpenSSL_Decrypt(encrypted_response: OpenSSLCommTransactionInterface): any {
+        let decryptedResponse = null;
         try {
+
             const encrypted: string = encrypted_response.ciphertext;
             const salt: string = CryptoJS.enc.Hex.parse(encrypted_response.salt);
             const iv: string = CryptoJS.enc.Hex.parse(encrypted_response.iv);
-            const key: CryptoJS.WordArray = CryptoJS.PBKDF2(this.decryptionPassPhrase, salt,
-                { hasher: CryptoJS.algo.SHA512, keySize: 64 / 8, iterations: 999 });
-            const decrypted: CryptoJS.DecryptedMessage = CryptoJS.AES.decrypt(encrypted, key, { iv: iv });
-            console.log('decrypted response >>> ' + decrypted.toString(CryptoJS.enc.Utf8));
-            return JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+
+            if (encrypted && salt && iv) {
+                const key: CryptoJS.WordArray = CryptoJS.PBKDF2(this.decryptionPassPhrase, salt,
+                    { hasher: CryptoJS.algo.SHA512, keySize: 64 / 8, iterations: 999 });
+                const decrypted: CryptoJS.DecryptedMessage = CryptoJS.AES.decrypt(encrypted, key, { iv: iv });
+                console.log('decrypted response >>> ' + decrypted.toString(CryptoJS.enc.Utf8));
+                decryptedResponse = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+            } else {
+
+                decryptedResponse = null;
+                console.error('invalid decrypted response');
+            }
+
         } catch (error) {
             this.errorHandler.handleError(error);
+        } finally {
+            return decryptedResponse;
         }
     }
     /**
@@ -90,6 +102,23 @@ export class MatrixCommunicationChannelEncryptionService implements MatrixMessag
             });
             const decryptedResponse: CryptoJS.DecryptedMessage = CryptoJS.AES.decrypt(encryptedMessage, key,
                 { iv: CryptoJS.enc.Hex.parse('decryption-keyiv') });
+            const decryptedResponsePlainMessageText = decryptedResponse.toString(CryptoJS.enc.Utf8);
+            const decryptedMessage = JSON.parse(decryptedResponsePlainMessageText);
+            return decryptedMessage;
+        } catch (error) {
+            this.errorHandler.handleError(error);
+        }
+    }
+
+    //just for client side decruption
+    getMcrypt_DecryptedMessage_clientOnly(encryptedMessage: string): JSON {
+        try {
+            const key = CryptoJS.PBKDF2('key-phrase-for-decription', CryptoJS.enc.Hex.parse('salt-for-encryption'), {
+                keySize: 128 / 32,
+                iterations: 10000
+            });
+            const decryptedResponse: CryptoJS.DecryptedMessage = CryptoJS.AES.decrypt(encryptedMessage, key,
+                { iv: CryptoJS.enc.Hex.parse(this.requestKeyIv) });
             const decryptedResponsePlainMessageText = decryptedResponse.toString(CryptoJS.enc.Utf8);
             const decryptedMessage = JSON.parse(decryptedResponsePlainMessageText);
             return decryptedMessage;

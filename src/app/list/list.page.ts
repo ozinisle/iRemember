@@ -11,19 +11,7 @@ import { ApiInteractionGatewayService } from '../../shared/api-interaction-gatew
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  // private selectedItem: any;
-  // private icons = [
-  // 'flask',
-  // 'wifi',
-  // 'beer',
-  // 'football',
-  // 'basketball',
-  // 'paper-plane',
-  // 'american-football',
-  // 'boat',
-  // 'bluetooth',
-  // 'build'
-  // ];
+
   public items: NoteItemInterface[] = [];
   public isDeleteButtonSelected: boolean = false;
   private itemsMarkedForDeletion: string[] = [];

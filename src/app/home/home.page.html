@@ -7,6 +7,9 @@
       Home
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar *ngIf="authService && authService.user">
+    <ion-title>Welcome {{authService?.user?.authenticatedUserName}}</ion-title>
+  </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-card class="welcome-card">
