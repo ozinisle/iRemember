@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { MatrixCommunicationChannelEncryptionService } from 'src/shared/services/matrix-communication-channel-encryption.service';
-import * as CryptoJS from 'crypto-js';
-import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 @Component({
@@ -25,12 +23,10 @@ export class LoginPage implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
 
-    const lastAttemptedByUser = localStorage.getItem('iremember-last-logged-in-user');
-    if (lastAttemptedByUser) {
-      var bytes = CryptoJS.AES.decrypt(lastAttemptedByUser.toString(), environment.clientOnlySecretKey);
-      var plaintext = bytes.toString(CryptoJS.enc.Utf8);
 
-      this.credentialsForm.setValue(JSON.parse(plaintext));
+    const lastAttemptedByUser = this.commChannelEncryptor.getDecryptedDataFromSessionStorage('iremember-last-logged-in-user')
+    if (lastAttemptedByUser) {
+      this.credentialsForm.setValue(JSON.parse(lastAttemptedByUser));
 
       this.rememberMeChkBox = true;
     }
@@ -46,7 +42,7 @@ export class LoginPage implements OnInit {
     this.authService.login(this.credentialsForm.value).subscribe(loginResponse => {
       //console.log(loginResponse)
       if (loginResponse.isAuthenticated) {
-        this.router.navigateByUrl('/home');
+        //this.router.navigateByUrl('/home');
 
         toast = this.toastController.create({
           message: "You are logged in",
@@ -55,6 +51,14 @@ export class LoginPage implements OnInit {
         });
 
         toast.then(done => done.present());
+
+        const decryptedTargetRoute = this.commChannelEncryptor.getDecryptedDataFromSessionStorage('irem-target-route');
+        if (decryptedTargetRoute) {
+          this.router.navigateByUrl(decryptedTargetRoute);
+          sessionStorage.setItem('irem-target-route', null);
+        } else {
+          this.router.navigateByUrl('/home')
+        }
       } else {
 
         toast = this.toastController.create({
@@ -82,8 +86,7 @@ export class LoginPage implements OnInit {
         "password": this.credentialsForm.value.password + ''
       }
 
-      localStorage.setItem('iremember-last-logged-in-user',
-        CryptoJS.AES.encrypt(JSON.stringify(rememberUser), environment.clientOnlySecretKey));
+      this.commChannelEncryptor.setEncryptedDataInLocalStorage('iremember-last-logged-in-user', JSON.stringify(rememberUser));
     }
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 import { MatrixMessageSecurityInterface, OpenSSLCommTransactionInterface } from '../models/interfaces/matrix-message-security.interface';
 import { MatrixErrorHandlerService } from './matrix-error-handler.service';
+import { environment } from '../../environments/environment';
 @Injectable({
     providedIn: 'root'
 })
@@ -124,6 +125,48 @@ export class MatrixCommunicationChannelEncryptionService implements MatrixMessag
             return decryptedMessage;
         } catch (error) {
             this.errorHandler.handleError(error);
+        }
+    }
+
+    getDecryptedDataFromSessionStorage(sessionStorageVariable) {
+
+        const storedSessionData = sessionStorage.getItem(sessionStorageVariable);
+        if (storedSessionData === null) {
+            return null;
+        }
+        const bytes = CryptoJS.AES.decrypt(storedSessionData, environment.clientOnlySecretKey);
+        const decryptedTargetRoute = bytes.toString(CryptoJS.enc.Utf8);
+        return decryptedTargetRoute;
+
+    }
+
+    setEncryptedDataInSessionStorage(sessionStorageVariable, dataToStore) {
+        if (dataToStore === null || typeof dataToStore === "undefined") {
+            sessionStorage.setItem(sessionStorageVariable, null)
+        } else {
+            const encryptedData = CryptoJS.AES.encrypt(dataToStore, environment.clientOnlySecretKey);
+            sessionStorage.setItem(sessionStorageVariable, encryptedData);
+        }
+    }
+
+    getDecryptedDataFromLocalStorage(localStorageVariable) {
+
+        const storedSessionData = localStorage.getItem(localStorageVariable);
+        if (storedSessionData === null) {
+            return null;
+        }
+        const bytes = CryptoJS.AES.decrypt(storedSessionData, environment.clientOnlySecretKey);
+        const decryptedTargetRoute = bytes.toString(CryptoJS.enc.Utf8);
+        return decryptedTargetRoute;
+
+    }
+
+    setEncryptedDataInLocalStorage(localStorageVariable, dataToStore) {
+        if (dataToStore === null || typeof dataToStore === "undefined") {
+            localStorage.setItem(localStorageVariable, null)
+        } else {
+            const encryptedData = CryptoJS.AES.encrypt(dataToStore, environment.clientOnlySecretKey);
+            localStorage.setItem(localStorageVariable, encryptedData);
         }
     }
 }

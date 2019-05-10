@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Add a tag
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="!newTagIdentified">
+  <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]="searchedTagText.categoryName"></ion-searchbar>
+  <div class="scrollable-section">
+
+    <ion-list no-border *ngFor="let categoryItem of filteredCategoryItems">
+
+      <ion-list-header>
+        {{categoryItem?.categoryGroupHeader}}
+      </ion-list-header>
+
+      <ion-item *ngFor="let tag of categoryItem.categoryTags">
+        <ion-icon [name]="tag.iconName" item-start></ion-icon>
+        <ion-label>{{tag?.categoryName}}</ion-label>
+        <ion-note item-end> {{tag?.categoryDescription}}</ion-note>
+        <ion-toggle [checked]="tag.selected" (ionChange)="trackSelection($event,tag)"></ion-toggle>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+  <ion-item>
+    <ion-grid no-border>
+      <ion-row>
+        <ion-col col-6>
+          <ion-button size="full" (click)="dismiss('ok')">ok</ion-button>
+        </ion-col>
+        <ion-col col-6>
+          <ion-button size="full" color="danger" (click)="dismiss('cancel')">cancel</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-content>
+<ion-content *ngIf="newTagIdentified">
+  <div class="position-relative">
+    <ion-item>
+      <ion-label position="floating">{{searchedTagText.categoryName}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Short Description</ion-label>
+      <ion-input type="text" [(ngModel)]="searchedTagText.categoryDescription">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Select an Icon</ion-label>
+      <ion-select value="" okText="Okay" cancelText="Dismiss" [(ngModel)]="searchedTagText.iconName">
+        <ion-select-option [value]="iconName" *ngFor="let iconName of iconNamesList">{{iconName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+
+    </ion-item>
+    <ion-item>
+      <ion-icon [name]="searchedTagText.iconName" item-start></ion-icon>
+      <ion-label>{{searchedTagText?.categoryName}}</ion-label>
+      <ion-note item-end> {{searchedTagText?.categoryDescription}}</ion-note>
+      <ion-toggle [checked]="true"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <ion-item class="bottom width99">
+    <ion-grid no-border>
+      <ion-row>
+        <ion-col col-6>
+          <ion-button size="full" (click)="dismiss('ok',newTag=true)">ok</ion-button>
+        </ion-col>
+        <ion-col col-6>
+          <ion-button size="full" color="danger" (click)="dismiss('cancel')">cancel</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+</ion-content>

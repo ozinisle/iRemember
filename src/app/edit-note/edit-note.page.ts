@@ -1,13 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { NoteItemInterface, NoteItemCategoryInterface, NoteDescriptionItemInterface } from '../../shared/models/interfaces/note-item.interface';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AlertController, ToastController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { NoteItemInterface, NoteItemCategoryInterface } from '../../shared/models/interfaces/note-item.interface';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AlertController, ToastController, ModalController, NavController } from '@ionic/angular';
 import { AlertOptions } from '@ionic/core';
 import { ActivatedRoute } from '@angular/router';
 import { EditNoteResolverDataInterface } from '../../shared/models/interfaces/resolver-data.interface';
-import { NoteItem, NoteItemCategory, NoteDescriptionItem } from '../../shared/models/note-item.model';
+import { NoteItem, NoteItemCategory } from '../../shared/models/note-item.model';
 import { EditNoteService } from './edit-note.service';
+import { AddNotesTagComponent } from './add-notes-tag/add-notes-tag.component';
 @Component({
   selector: 'app-edit-note',
   templateUrl: './edit-note.page.html',
@@ -25,50 +25,43 @@ export class EditNotePage implements OnInit {
     'description': [
       { type: 'required', message: 'description is required.' },
       { type: 'minlength', message: 'description must be at least 4 characters long.' }
-    ],
-    'tags': [
-      { type: 'required', message: 'tags are required.' }
     ]
   };
 
   constructor(private activatedRoute: ActivatedRoute,
     private alertController: AlertController,
     private toasController: ToastController,
-    private editNoteService: EditNoteService) { }
+    private editNoteService: EditNoteService,
+    private modalCtrl: ModalController,
+    private navController: NavController) { }
 
   ngOnInit() {
     const editNoteResolverData: EditNoteResolverDataInterface = this.activatedRoute.snapshot.data.editNoteResolverData;
-    // this.note = editNoteResolverData.getNote();
     this.note = Object.assign(Object.create(new NoteItem()), editNoteResolverData.getNote());
     this.noteEntryForm = new FormGroup({
       title: new FormControl('', [
         Validators.required,
-        Validators.minLength(4),
-        // forbiddenNameValidator(/bob/i) // <-- Here's how you pass in the custom validator.
+        Validators.minLength(4)
       ]),
       description: new FormControl('', [
         Validators.required,
-        Validators.minLength(4)]),
-      tags: new FormControl('', Validators.required)
+        Validators.minLength(4)])
     });
     if (!this.isNewDoc) {
       this.noteEntryForm.controls.title.setValue(this.note.getNoteTitle());
-      // this.noteEntryForm.controls.description.setValue(this.note.getNoteDescription());
-      this.noteEntryForm.controls.tags.setValue(this.note.getCategoryTags().join(', '));
+      this.noteEntryForm.controls.description.setValue(this.note.getNoteDescription());
     }
   }
-  onSubmit() {
+
+  public onSubmit() {
     const options: AlertOptions = {
       header: 'Save?',
       subHeader: 'save the changes made to the note',
       message: 'Are you sure you want to save the note?',
-      // cssClass?: string | string[];
-      // inputs?: AlertInput[];
       buttons: [
         {
           text: 'Yes',
           handler: async () => {
-            //console.warn('following form data to be save >>>', this.noteEntryForm.value);
             this.editNoteService.updateNode(this.getNoteDetails()).subscribe(
               updateNoteResponse => {
                 const toast = this.toasController.create({
@@ -77,6 +70,8 @@ export class EditNotePage implements OnInit {
                   position: 'bottom'
                 });
                 toast.then(done => done.present());
+
+                this.note = <NoteItemInterface>updateNoteResponse.matchingRecords;
               },
               error => {
                 const toast = this.toasController.create({
@@ -92,36 +87,65 @@ export class EditNotePage implements OnInit {
           }
         },
         { text: 'No' }
-      ],
-      // backdropDismiss?: boolean;
-      // translucent?: boolean;
+      ]
     };
     const confirm = this.alertController.create(options);
     confirm.then(confirm => confirm.present());
   }
 
-  private getNoteDetails(): NoteItemInterface {
-    const noteDetails: NoteItemInterface = new NoteItem();
+  public removeTag(selectedTag) {
+    // console.log(selectedTag);
+    selectedTag = Object.assign(new NoteItemCategory(), selectedTag);
+    let catTags: NoteItemCategoryInterface[] = this.note.getCategoryTags();
+    let matchedIndex = -1;
+    catTags.some((tag, index) => {
+      if (tag.getCategoryName() === selectedTag.getCategoryName() && tag.getCategoryId() === selectedTag.getCategoryId()) {
+        matchedIndex = index;
+        return true
+      }
+    });
+    catTags.splice(matchedIndex, 1);
+    this.note.setCategoryTags(catTags);
+  }
+  public goBack() {
+    this.navController.back();
+  }
 
-    const tags = this.noteEntryForm.controls['tags'].value;
-    const categoryTags: NoteItemCategoryInterface[] = [];
-    if (tags && tags.trim && tags.trim()) {
-      const tagArr = tags.trim().split(',');
-      tagArr.map((tagItem) => {
-        const categoryTag: NoteItemCategory = new NoteItemCategory();
-        categoryTag.categoryName = tagItem;
-        categoryTags.push(categoryTag);
+  public presentAddTagModal() {
+    let addTagModal: Promise<HTMLIonModalElement> = this.modalCtrl.create({
+      component: AddNotesTagComponent,
+      componentProps: { "existingTags": this.note.getCategoryTags() },
+      cssClass: ''
+    });
+
+    addTagModal.then(addTagModal => {
+
+      addTagModal.present();
+
+      addTagModal.onDidDismiss().then(selectedTags => {
+        //OverlayEventDetail<NoteItemCategoryInterface[]>
+        //console.log(data);
+        this.note.setCategoryTags(<NoteItemCategoryInterface[]>selectedTags.data);
       });
-    }
+
+    });
+
+
+
+
+
+
+
+  }
+
+  private getNoteDetails(): NoteItemInterface {
 
     const descriptionItm: string = this.noteEntryForm.controls['description'].value;
 
-    noteDetails
+    this.note
       .setNoteTitle(this.noteEntryForm.controls['title'].value)
-      .setCategoryTags(categoryTags)
-      .setNoteDescriptionItems(descriptionItm);
+      .setNoteDescription(descriptionItm);
 
-
-    return noteDetails;
+    return this.note;
   }
 }

@@ -45,8 +45,7 @@ const routes: Routes = [
       editNoteResolverData: EditNoteResolver
     },
     canActivate: [AuthGuardService]
-  },
-  { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' }
+  }
 
 ];
 @NgModule({
