@@ -46,7 +46,7 @@
         </ion-button>
       </ion-item>
 
-      <ion-chip *ngFor="let tag of note.getCategoryTags()">
+      <ion-chip *ngFor="let tag of note.categoryTags">
         <ion-icon [name]="tag.iconName" item-start></ion-icon>
         <ion-label>{{tag?.categoryName}}</ion-label>
         <ion-icon name="close" item-end small (click)="removeTag(tag)"></ion-icon>
@@ -56,7 +56,8 @@
       <ion-grid no-border>
         <ion-row>
           <ion-col col-6>
-            <ion-button size="full" [disabled]="!noteEntryForm.valid" (click)="onSubmit()">Save</ion-button>
+            <ion-button size="full" [disabled]="!noteEntryForm.valid || noTagFound" (click)="onSubmit()">Save
+            </ion-button>
           </ion-col>
           <ion-col col-6>
             <ion-button size="full" color="danger" (click)="goBack()">cancel</ion-button>

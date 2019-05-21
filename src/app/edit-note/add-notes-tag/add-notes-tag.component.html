@@ -6,7 +6,21 @@
   </ion-toolbar>
 </ion-header>
 <ion-content *ngIf="!newTagIdentified">
-  <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]="searchedTagText.categoryName"></ion-searchbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]="searchedTagText.categoryName"></ion-searchbar>
+      </ion-col>
+      <ion-col size="2" (click)="createNewTag()">
+        <div class="add-circle-container">
+          <ion-item>
+            <ion-icon name="add-circle" item-start></ion-icon>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <div class="scrollable-section">
 
     <ion-list no-border *ngFor="let categoryItem of filteredCategoryItems">
@@ -23,7 +37,13 @@
       </ion-item>
 
     </ion-list>
-
+    <ion-list no-border>
+      <ion-item (click)="createNewTag()" *ngIf="filteredCategoryItems && filteredCategoryItems.length===0">
+        <ion-icon [name]="create" item-start></ion-icon>
+        <ion-label>Do not find it? Create one then</ion-label>
+        <ion-note item-end> create a new tag</ion-note>
+      </ion-item>
+    </ion-list>
   </div>
   <ion-item>
     <ion-grid no-border>

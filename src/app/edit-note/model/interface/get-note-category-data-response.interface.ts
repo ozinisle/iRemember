@@ -6,15 +6,15 @@ export interface GetNoteCategoryDataResponseInterface extends GenericResponseMod
 }
 
 export interface CategoryTagDataInterface {
-    // categoryTagData: CategoryTagEntityInterface[];
+    categoryTagData: CategoryTagEntityInterface[];
 
     getCategoryTagData(): CategoryTagEntityInterface[];
     setCategoryTagData(categoryTagData: CategoryTagEntityInterface[]): CategoryTagDataInterface;
 }
 
 export interface CategoryTagEntityInterface {
-    //categoryGroupHeader: string;
-    //categoryTags: NoteItemCategoryInterface[];
+    categoryGroupHeader: string;
+    categoryTags: NoteItemCategoryInterface[];
 
     getCategoryGroupHeader(): string;
     setCategoryGroupHeader(categoryGroupHeader: string): CategoryTagEntityInterface;

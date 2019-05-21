@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { EditNotePage } from './edit-note.page';
 import { BrowserModule } from '@angular/platform-browser';
 import { AddNotesTagComponent } from './add-notes-tag/add-notes-tag.component';
+
 const routes: Routes = [
   {
     path: '',

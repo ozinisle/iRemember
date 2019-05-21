@@ -9,7 +9,7 @@ export class GetNoteCategoryDataResponseModel extends GenericResponseModel imple
 }
 
 export class CategoryTagData implements CategoryTagDataInterface {
-    private categoryTagData: CategoryTagEntity[];
+    public categoryTagData: CategoryTagEntity[];
 
     getCategoryTagData(): CategoryTagEntity[] {
         return this.categoryTagData;
@@ -22,8 +22,8 @@ export class CategoryTagData implements CategoryTagDataInterface {
 }
 
 export class CategoryTagEntity implements CategoryTagEntityInterface {
-    private categoryGroupHeader: string;
-    private categoryTags: NoteItemCategory[];
+    public categoryGroupHeader: string;
+    public categoryTags: NoteItemCategory[];
 
     getCategoryGroupHeader(): string {
         return this.categoryGroupHeader;

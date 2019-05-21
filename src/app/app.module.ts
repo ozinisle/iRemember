@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoteListService } from './list/note-list.service';
-import { ViewNoteResolver } from './view-note/view-note.resolver';
 import { EditNoteResolver } from './edit-note/edit-note.resolver';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
@@ -22,6 +21,7 @@ import { MatrixCommunicationChannelEncryptionService } from 'src/shared/services
 import { ApiInteractionGatewayService } from 'src/shared/api-interaction-gateway/api-interaction-gateway.service';
 import { EditNoteService } from './edit-note/edit-note.service';
 import { CommonModule } from '@angular/common';
+import { ViewNoteService } from './view-note/view-note.service';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -60,17 +60,19 @@ export function jwtOptionsFactory(storage) {
     ApiInteractionGatewayService,
     MatrixCommunicationChannelEncryptionService,
     NoteListService,
-    ViewNoteResolver,
     EditNoteResolver,
     AuthService,
     AuthGuardService,
-    EditNoteService
+    EditNoteService,
+    ViewNoteService
   ],
   exports: [
     FormsModule,
     ReactiveFormsModule
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent
+  ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]
