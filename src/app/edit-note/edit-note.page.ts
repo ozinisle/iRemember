@@ -203,9 +203,8 @@ export class EditNotePage implements OnInit {
     try {
       const descriptionItm: string = this.noteEntryForm.controls['description'].value;
 
-      this.note
-        .setNoteTitle(this.noteEntryForm.controls['title'].value)
-        .setNoteDescription(descriptionItm);
+      this.note.noteTitle = this.noteEntryForm.controls['title'].value;
+      this.note.noteDescription = descriptionItm;
     } catch (error) {
       this.errorHandler.handleError(error);
     }
