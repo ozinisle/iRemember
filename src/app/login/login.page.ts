@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { MatrixCommunicationChannelEncryptionService } from 'src/shared/services/matrix-communication-channel-encryption.service';
-import * as CryptoJS from 'crypto-js';
-import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { IRemember } from 'src/shared/constants/i-remember.constants';
+import { MatrixErrorHandlerService } from 'src/shared/services/matrix-error-handler.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -18,72 +18,94 @@ export class LoginPage implements OnInit {
   constructor(private formBuilder: FormBuilder, private authService: AuthService,
     private commChannelEncryptor: MatrixCommunicationChannelEncryptionService,
     private router: Router,
-    private toastController: ToastController) { }
+    private toastController: ToastController,
+    private errorHandler: MatrixErrorHandlerService) { }
   ngOnInit() {
-    this.credentialsForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    });
+    try {
+      this.credentialsForm = this.formBuilder.group({
+        username: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]]
+      });
 
-    const lastAttemptedByUser = localStorage.getItem('iremember-last-logged-in-user');
-    if (lastAttemptedByUser) {
-      var bytes = CryptoJS.AES.decrypt(lastAttemptedByUser.toString(), environment.clientOnlySecretKey);
-      var plaintext = bytes.toString(CryptoJS.enc.Utf8);
 
-      this.credentialsForm.setValue(JSON.parse(plaintext));
+      const lastAttemptedByUser = this.commChannelEncryptor.getDecryptedDataFromLocalStorage(IRemember.localStorageItems.lastLoggedInUser)
+      if (lastAttemptedByUser) {
+        this.credentialsForm.setValue(JSON.parse(lastAttemptedByUser));
 
-      this.rememberMeChkBox = true;
+        this.rememberMeChkBox = true;
+      } else {
+        localStorage.setItem(IRemember.localStorageItems.lastLoggedInUser, null);
+      }
+
+    } catch (error) {
+      this.errorHandler.handleError(error);
     }
-
-
   }
   onSubmit() {
-    let toast = this.toastController.create({
-      message: "Sending Verification Code ....",
-      duration: 1000,
-      position: 'bottom'
-    });
-    this.authService.login(this.credentialsForm.value).subscribe(loginResponse => {
-      //console.log(loginResponse)
-      if (loginResponse.isAuthenticated) {
-        this.router.navigateByUrl('/home');
+    try {
+      let toast = this.toastController.create({
+        message: IRemember.messages.sendingVerificationCode,
+        duration: 1000,
+        position: 'bottom'
+      });
+      this.authService.login(this.credentialsForm.value).subscribe(loginResponse => {
+        //console.log(loginResponse)
+        if (loginResponse.isAuthenticated) {
+          //this.router.navigateByUrl('/home');
 
-        toast = this.toastController.create({
-          message: "You are logged in",
-          duration: 1000,
-          position: 'bottom'
-        });
+          toast = this.toastController.create({
+            message: IRemember.messages.youAreLoggedIn,
+            duration: 1000,
+            position: 'bottom'
+          });
 
-        toast.then(done => done.present());
-      } else {
+          toast.then(done => done.present());
 
-        toast = this.toastController.create({
-          message: "Authentication failed",
-          duration: 1000,
-          position: 'bottom'
-        });
+          const decryptedTargetRoute = this.commChannelEncryptor.getDecryptedDataFromSessionStorage(IRemember.sessionStorageItems.loginAndFallBack);
+          if (decryptedTargetRoute) {
+            this.router.navigateByUrl(decryptedTargetRoute);
+            sessionStorage.setItem(IRemember.sessionStorageItems.loginAndFallBack, null);
+          } else {
+            this.router.navigateByUrl('/home')
+          }
+        } else {
 
-        toast.then(done => done.present());
-      }
-    });
-    this.rememberMe();
+          toast = this.toastController.create({
+            message: IRemember.messages.authenticationFailedMessage,
+            duration: 1000,
+            position: 'bottom'
+          });
+
+          toast.then(done => done.present());
+        }
+      });
+      this.rememberMe();
+    } catch (error) {
+      this.errorHandler.handleError(error);
+    }
   }
   register() {
-    this.authService.register(this.credentialsForm.value).subscribe(res => {
-      // Call Login to automatically login the new user
-      this.authService.login(this.credentialsForm.value).subscribe();
-    });
+    try {
+      this.authService.register(this.credentialsForm.value).subscribe(res => {
+        // Call Login to automatically login the new user
+        this.authService.login(this.credentialsForm.value).subscribe();
+      });
+    } catch (error) {
+      this.errorHandler.handleError(error);
+    }
   }
   private rememberMe() {
+    try {
+      if (this.rememberMeChkBox) {
+        const rememberUser: JSON = <JSON><unknown>{
+          "username": this.credentialsForm.value.username + '',
+          "password": this.credentialsForm.value.password + ''
+        }
 
-    if (this.rememberMeChkBox) {
-      const rememberUser: JSON = <JSON><unknown>{
-        "username": this.credentialsForm.value.username + '',
-        "password": this.credentialsForm.value.password + ''
+        this.commChannelEncryptor.setEncryptedDataInLocalStorage(IRemember.localStorageItems.lastLoggedInUser, JSON.stringify(rememberUser));
       }
-
-      localStorage.setItem('iremember-last-logged-in-user',
-        CryptoJS.AES.encrypt(JSON.stringify(rememberUser), environment.clientOnlySecretKey));
+    } catch (error) {
+      this.errorHandler.handleError(error);
     }
   }
 }

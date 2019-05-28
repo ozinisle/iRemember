@@ -1,0 +1,1014 @@
+{
+    "categoryTagData": [
+        {
+            "categoryGroupHeader": "General",
+            "categoryTags": [
+                {
+                    "categoryName": "Favorite",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "star",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Remember",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "book",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Emergency",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "warning",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Emergency Remember",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "warning",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Day-to-day needed",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "hand",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Crucial",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "stats",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Wins",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "trophy",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Losses",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "thumbs-down",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "On Course",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "thumbs-up",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Junk",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "trash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Personal",
+            "categoryTags": [
+                {
+                    "categoryName": "Travel",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "bus",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "tips",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "book",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "health",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "medkit",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "wealth",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "logo-euro",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Innovation",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "expand",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "knowledge",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "infinite",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Practise",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "book",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Involuntary",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "book",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Idea",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "bulb",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Driving",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "book",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Self Control",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "flash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Interests",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "headset",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Ambition",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "flame",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Wish List",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "flower",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Make Life Easy",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "flower",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Be Cool and Look Cool",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "flower",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Food",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "restaurant",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Vacation",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "plane",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "sweet memory",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "images",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "bitter memory",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "logo-python",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Professional",
+            "categoryTags": [
+                {
+                    "categoryName": "Work Experience",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "book",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Technical Points to remember",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "book",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Make work easy",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "planet",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "People",
+            "categoryTags": [
+                {
+                    "categoryName": "Relatives",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "people",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Relationship Note",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "contacts",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Interaction Note",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "logo-pinterest",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Life-Lesson",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "alert",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Experience with People",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "chatbubbles",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Remember about person",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "contact",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Financial",
+            "categoryTags": [
+                {
+                    "categoryName": "handloans",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "income Tips",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Income Tax",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Additional Income",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Offers",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Reduce Expense",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Bank",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Investment Schemes",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Mutual Funds",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "HUF",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Cheetu",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Cooperative Society and Sangam",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Business",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Share Market",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "cash",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "To do",
+            "categoryTags": [
+                {
+                    "categoryName": "To do it immediately",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "man",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "To do it daily",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "man",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Labour",
+            "categoryTags": [
+                {
+                    "categoryName": "Service and Maintenance",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "man",
+                    "categoryDescription": "some small note"
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Beware",
+            "categoryTags": [
+                {
+                    "categoryName": "Alarm",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "alarm",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Danger",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "close-circle",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Trap",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "aperture",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Tricks",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "analytics",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Bad Practise",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "analytics",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Toxic",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "nuclear",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Stay away",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "notifications-off",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Dont talk these",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "mic-off",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "talk these",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "mic",
+                    "categoryDescription": "some small note"
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Feedback",
+            "categoryTags": [
+                {
+                    "categoryName": "Feedback comments",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "paper",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "ratings",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "star-half",
+                    "categoryDescription": "some small note"
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Thought Process",
+            "categoryTags": [
+                {
+                    "categoryName": "Observation",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "pulse",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Inference",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "planet",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Prediction",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "paper",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Assumption",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "paper",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Definite",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "paper",
+                    "categoryDescription": "some small note"
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Electronics",
+            "categoryTags": [
+                {
+                    "categoryName": "Gadgets",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "desktop",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Mobiles",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "phone-portrait",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "TV",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "desktop",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "AC",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "desktop",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Fridge",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "desktop",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Washing Machine",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "desktop",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Accessories",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "desktop",
+                    "categoryDescription": "some small note"
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Electrical",
+            "categoryTags": [
+                {
+                    "categoryName": "Grinder",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "outlet",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Mixer",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "outlet",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Inverter",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "outlet",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Fan",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "outlet",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Iron Box",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "outlet",
+                    "categoryDescription": "some small note"
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Automobiles",
+            "categoryTags": [
+                {
+                    "categoryName": "Cars",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "car",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Bike",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "bicycle",
+                    "categoryDescription": "some small note"
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Education",
+            "categoryTags": [
+                {
+                    "categoryName": "Schools",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "school",
+                    "categoryDescription": "some small note"
+                },
+                {
+                    "categoryName": "Colleges",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "selected": false,
+                    "iconName": "school",
+                    "categoryDescription": "some small note"
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Legal",
+            "categoryTags": [
+                {
+                    "categoryName": "Govt Office Procedures",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "information-circle",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Police",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "planet",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Court",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "planet",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Preventive Measures",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "planet",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Justice Help",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "help-circle",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Illegal",
+            "categoryTags": [
+                {
+                    "categoryName": "Fraud",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "logo-freebsd-devil",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Harrasment",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "logo-freebsd-devil",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Offense",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "logo-freebsd-devil",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Violent",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "logo-freebsd-devil",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Malpractise",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "logo-freebsd-devil",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Corruption",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "logo-freebsd-devil",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Talent",
+            "categoryTags": [
+                {
+                    "categoryName": "Cooking",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "basket",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Language Learning",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "basket",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                }
+            ]
+        },
+        {
+            "categoryGroupHeader": "Emotional",
+            "categoryTags": [
+                {
+                    "categoryName": "Happy",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "happy",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Sad",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "sad",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Pleasure",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "happy",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Pain",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "sad",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Wow",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "happy",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Disgusting",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "sad",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Love",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "heart",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Hate",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "heart-outline",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Affectionate",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "happy",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Grateful",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "happy",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Betrayed",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "sad",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Angry",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "sad",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Shock",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "thunderstorm",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                },
+                {
+                    "categoryName": "Surprise",
+                    "categoryId": "",
+                    "markedForDeletion": "false",
+                    "iconName": "rose",
+                    "categoryDescription": "some small note",
+                    "selected": false
+                }
+            ]
+        }
+    ]
+}

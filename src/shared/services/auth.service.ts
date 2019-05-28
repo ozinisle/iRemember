@@ -63,7 +63,7 @@ export class AuthService {
 
     register(credentials: MatrixRegistrationRequestModelInterface) {
         credentials.appName = environment.appName;
-        return this.httpGateway.doPost(IRemember.apiEndPoints.register, credentials, true).pipe(
+        return this.httpGateway.doPost(IRemember.apiEndPoints.register, credentials).pipe(
             catchError(e => {
                 this.showAlert(e.error && e.error.msg ? e.error.msg : e.message);
                 throw new Error(e);
@@ -84,7 +84,7 @@ export class AuthService {
 
     login(credentials: MatrixRegistrationRequestModelInterface): Observable<IRemLoginResponseInterface> {
         return this.httpGateway.doPost(IRemember.apiEndPoints.login,
-            credentials, true)
+            credentials)
             .pipe(
                 tap(user => {
                     // const user = this.commChannelEncryptor.CryptoJS_Aes_OpenSSL_Decrypt(encryptedUser);
@@ -111,17 +111,19 @@ export class AuthService {
     }
 
     logout() {
+        this.setUser(null);
+        sessionStorage.setItem('current_user', null);
+        sessionStorage.setItem('irem-target-route', null);
+        console.warn('User\'s session has been signed out');
+        this.router.navigateByUrl('./home');
         this.httpGateway.doPost(IRemember.apiEndPoints.signOutUrl, {}).subscribe(
             (data) => {
-                this.setUser(null);
-                sessionStorage.setItem('current_user', null);
-                console.warn('User\'s session has been signed out');
-                this.router.navigateByUrl('./home');
+                console.log('signout response >>>', data);
             }
         );
-        this.storage.remove(TOKEN_KEY).then(() => {
-            this.authenticationState.next(false);
-        });
+        // this.storage.remove(TOKEN_KEY).then(() => {
+        //     this.authenticationState.next(false);
+        // });
     }
 
     isAuthenticated(): boolean {

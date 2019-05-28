@@ -16,32 +16,14 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Notes',
+      title: 'My Notes',
       url: '/list',
       icon: 'list'
     },
     {
-      title: 'New Note',
-      url: '/edit-note',
-      icon: 'create'
-    },
-    {
-      title: 'Login',
-      url: '/login',
-      icon: 'log-in'
-    },
-    {
-      title: 'Register',
-      url: '/register',
-      icon: 'albums'
-    },
-    {
-      title: 'Sign out',
-      handler: () => {
-        this.authService.logout();
-        this.router.navigate(['/home']);
-      },
-      icon: 'log-out'
+      title: 'Trash',
+      url: '/trash',
+      icon: 'list'
     }
   ];
   constructor(
