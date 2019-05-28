@@ -5,26 +5,9 @@ export class GenericResponseModel implements GenericResponseModelInterface {
     errorMessage: string;
     displayMessage: string;
     responseCode: string;
-    matchingRecords: any;
 }
 
 export class GenericRecordItems implements GenericRecordItemsInterface {
-    private created: string;
-    private lastupdated: string;
-
-    getCreated(): string {
-        return this.created;
-    }
-    getLastupdated(): string {
-        return this.lastupdated;
-    }
-
-    setCreated(created: string): GenericRecordItems {
-        this.created = created;
-        return this;
-    }
-    setLastupdated(lastupdated: string): GenericRecordItems {
-        this.lastupdated = lastupdated;
-        return this;
-    }
+    created: string;
+    lastupdated: string;
 }

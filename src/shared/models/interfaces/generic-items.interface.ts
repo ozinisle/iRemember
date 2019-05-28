@@ -4,13 +4,9 @@ export interface GenericResponseModelInterface {
     errorMessage: string;
     displayMessage: string;
     responseCode: string;
-    matchingRecords: any;
 }
 
 export interface GenericRecordItemsInterface {
-    getCreated(): string;
-    getLastupdated(): string;
-
-    setCreated(created: string): GenericRecordItemsInterface;
-    setLastupdated(lastupdated: string): GenericRecordItemsInterface;
+    created:string;
+    lastupdated:string;
 }
