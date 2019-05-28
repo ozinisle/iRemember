@@ -1,2 +1,0 @@
-# iRemember
-iRemember app
