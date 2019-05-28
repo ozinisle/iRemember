@@ -1,0 +1,36 @@
+.tool-bar-icon {
+  font-size: 20px;
+}
+
+.add-circle-container {
+  .item.ion-focusable.hydrated {
+    --inner-border-width: 0 0 0 0 !important;
+  }
+}
+ion-item-group {
+  border-bottom: 1px solid green;
+  ion-item {
+    --inner-border-width: 0 0 0 0 !important;
+  }
+  .note-description {
+    ion-label {
+      padding-left: 15px;
+      max-width: 90%;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+      //  color: goldenrod;
+      font-size: 12px;
+      margin-top: -2px;
+      margin-bottom: -10px;
+    }
+  }
+
+  .in-list.item.ion-focusable.item-label.hydrated {
+    font-weight: bold;
+    //color: green;
+    .ion-note {
+      //color: steelblue;
+    }
+  }
+}
