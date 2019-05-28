@@ -4,25 +4,24 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      {{isTrashFolderFlag?'Trash':'My Notes'}}
+      List
     </ion-title>
-    <ion-buttons slot="end" *ngIf="!isTrashFolderFlag">
-      <ion-icon name="create" class="tool-bar-icon" (click)="openNewNote()"></ion-icon>
-    </ion-buttons>
-    <ion-buttons slot="end" *ngIf="notesExist">
-      <ion-icon name="trash" class="tool-bar-icon" (click)="doDelete()"></ion-icon>
+    <ion-buttons slot="end">
+      <ion-icon name="trash" class="tool-bar-delete-button" (click)="doDelete()"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <app-no-documents-page *ngIf="!notesExist"></app-no-documents-page>
-  <ion-list *ngIf="notesExist">
+  <ion-list>
     <ion-item *ngFor="let item of items">
-      <ion-icon (click)="editItem(item)" name="create" item-start></ion-icon>
-      <ion-label (click)="openItem(item)">{{item?.noteTitle}}</ion-label>
-      <ion-note item-end> {{item?.noteDescription | slice:0:30}}...</ion-note>
-      <ion-toggle color="secondary" [checked]="item.isMarkedForDeletion" (ionChange)="trackSelection($event,item)">
-      </ion-toggle>
+      <ion-icon *ngIf="!isDeleteButtonSelected" (click)="editItem(item)" name="create" slot="start"></ion-icon>
+      <ion-checkbox *ngIf="isDeleteButtonSelected" color="secondary" [(ngModel)]="item.isMarkedForDeletion"
+        (click)="trackSelection(item)" slot="start">
+      </ion-checkbox>
+      <div>
+        <p (click)="openItem(item)">{{item.noteTitle}}</p>
+        <p>{{item.noteDescription | slice:0:30}}...</p>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>

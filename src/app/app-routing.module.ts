@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EditNoteResolver } from './edit-note/edit-note.resolver';
+import { ViewNoteResolver } from './view-note/view-note.resolver';
 import { AuthGuardService } from 'src/shared/services/auth-guard.service';
-
-
 const routes: Routes = [
   {
     path: '',
@@ -11,15 +11,10 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomePageModule',
+    loadChildren: './home/home.module#HomePageModule'
   },
   {
     path: 'list',
-    loadChildren: './list/list.module#ListPageModule',
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'trash',
     loadChildren: './list/list.module#ListPageModule',
     canActivate: [AuthGuardService]
   },
@@ -38,13 +33,20 @@ const routes: Routes = [
   {
     path: 'view-note',
     loadChildren: './view-note/view-note.module#ViewNotePageModule',
+    resolve: {
+      viewNoteResolverData: ViewNoteResolver
+    },
     canActivate: [AuthGuardService]
   },
   {
     path: 'edit-note',
     loadChildren: './edit-note/edit-note.module#EditNotePageModule',
+    resolve: {
+      editNoteResolverData: EditNoteResolver
+    },
     canActivate: [AuthGuardService]
-  }
+  },
+  { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' }
 
 ];
 @NgModule({

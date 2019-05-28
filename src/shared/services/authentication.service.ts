@@ -25,11 +25,11 @@ export class AuthenticationService {
         return this.userAuthenticated;
     }
     registerUser(request: MatrixRegistrationRequestModelInterface): Observable<OpenSSLCommTransactionInterface> {
-        return this.http.doPost(IRemember.apiEndPoints.register, request);
+        return this.http.doPost(IRemember.apiEndPoints.register, request, true);
     }
     login(username: string, password: string): Observable<any> {
         return this.http.doPost(IRemember.apiEndPoints.login,
-            { username: username, password: password })
+            { username: username, password: password }, true)
             .pipe(map(encryptedUser => {
                 try {
                     const user = this.commChannelEncryptor.CryptoJS_Aes_OpenSSL_Decrypt(encryptedUser);
