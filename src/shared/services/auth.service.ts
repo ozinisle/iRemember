@@ -37,7 +37,7 @@ export class AuthService {
     public isAuthenticatedUser() {
         let authFlag: boolean = false;
         if (this.user) {
-            authFlag = this.user.isAuthenticated === "true";
+            authFlag = this.user.isAuthenticated;
         }
         return authFlag;
     }
@@ -133,7 +133,7 @@ export class AuthService {
 
     isAuthenticated(): boolean {
         const user: IRemLoginResponseInterface = this.getUser();
-        return user ? user.isAuthenticated.toUpperCase() === "TRUE" : false;
+        return !!user.isAuthenticated;
     }
 
     showAlert(msg) {

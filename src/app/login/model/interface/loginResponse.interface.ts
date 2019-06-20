@@ -1,6 +1,7 @@
 export interface IRemLoginResponseInterface {
-    isAuthenticated: string;
+    isAuthenticated: boolean;
     token: string;
     authenticatedUserName: string;
     displayMessage: string;
+    logs: string[];
 }

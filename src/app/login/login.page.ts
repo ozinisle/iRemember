@@ -50,7 +50,7 @@ export class LoginPage implements OnInit {
       });
       this.authService.login(this.credentialsForm.value).subscribe(loginResponse => {
         //console.log(loginResponse)
-        if (loginResponse.isAuthenticated === "true") {
+        if (loginResponse.isAuthenticated === true) {
           //this.router.navigateByUrl('/home');
 
           toast = this.toastController.create({
